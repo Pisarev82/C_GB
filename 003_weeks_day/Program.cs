@@ -3,7 +3,7 @@
 // 3 -> Среда
 // 5 -> Пятница
 
- Console.Write("Введите целое число: ");
+Console.Write("Введите целое число: ");
 int a = Convert.ToInt32(System.Console.ReadLine());
 
 if( a == 1) System.Console.WriteLine("Понедельник");
