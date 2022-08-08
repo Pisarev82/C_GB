@@ -18,11 +18,19 @@ int secondtDigit = number %10;
 //int result = firstDigit >= secondtDigit ? firstDigit : secondtDigit; // тернарный оператор
 
 
-string result = firstDigit == secondtDigit ? "Цыфры равны"
-: firstDigit > secondtDigit ? firstDigit.ToString() : secondtDigit.ToString();
+// string result = firstDigit == secondtDigit ? "Цыфры равны"
+// : firstDigit > secondtDigit ? firstDigit.ToString() : secondtDigit.ToString();
+// Console.WriteLine($"Наибольшая цифра {number} => {result}");
+int result = MaxDigit(number);
+int MaxDigit(int num)
+{
+    int firstDigit = num /10;
+    int secondtDigit = num %10;
+    return result = firstDigit >= secondtDigit ? firstDigit : secondtDigit;
+}
+
+int result2 = MaxDigit(98);
 Console.WriteLine($"Наибольшая цифра {number} => {result}");
-
-
-
+Console.WriteLine($"Наибольшая цифра {98} => {result2}");
 
 
