@@ -26,11 +26,14 @@ int MaxDigit(int num)
 {
     int firstDigit = num /10;
     int secondtDigit = num %10;
+    if (firstDigit == secondtDigit) return -1;
     return result = firstDigit >= secondtDigit ? firstDigit : secondtDigit;
 }
 
-int result2 = MaxDigit(98);
-Console.WriteLine($"Наибольшая цифра {number} => {result}");
-Console.WriteLine($"Наибольшая цифра {98} => {result2}");
+string res = result == -1 ? "Цифры равны" : result.ToString();
+
+// int result2 = MaxDigit(98);
+Console.WriteLine($"Наибольшая цифра {number} => {res}");
+// Console.WriteLine($"Наибольшая цифра {98} => {result2}");
 
 
