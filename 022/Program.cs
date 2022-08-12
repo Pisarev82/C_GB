@@ -14,5 +14,4 @@ while (count <= n)
     System.Console.WriteLine($"{count} {sqr}");
     count++;
     sqr = count * count;
-
 }
