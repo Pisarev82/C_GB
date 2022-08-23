@@ -1,50 +1,49 @@
-﻿/* Задача 34: Задайте массив 
-заполненный случайными положительными трёхзначными числами. 
-Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
 
-[345, 897, 568, 234] -> 2
-*/
+int numberOfNumbers = InputInt("Введите какое колличество чисел будем проверять: ");
 
-
-Console.Write("Чтобы узнать количество чётных чисел в массиве, нажмите клавишу Enter. ");
-Console.ReadLine();
-int[] CreateArray(int size, int min, int max)
+if (numberOfNumbers > 0) 
 {
-    int[] array = new int[size];
-    Random rnd = new Random();    
-    for (int i = 0; i < size; i++)
-    {
-        array[i] = rnd.Next(min, max + 1);
-    }
-    return array;
+    int[] numbers = CreateAndFillArray(numberOfNumbers);
+    PrintNumbersAndCountPositiv(numbers);
+
 }
 
-void PrintArray(int[] array)
-{    
-    Console.Write("[");
-    for (int i = 0; i < array.Length; i++)
-    { 
-        if (i < array.Length-1) Console.Write($"{array[i]}, " );
-        else Console.Write(array[i]);                                       
-    }
-    Console.Write("]");
+
+int InputInt (string input)
+{
+    Console.Write(input);
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
+}
+
+
+
+int[] CreateAndFillArray(int numberOfNumbersForMetod)
+{
+    int[] array = new int[numberOfNumbersForMetod];
     
+    for (int i = 0; i < numberOfNumbersForMetod; i++)
+    {
+        array[i] = InputInt ("Введите число: ");
+    }
+    return array;
 }
-int[] ArrayEven(int[] array)
+
+void PrintNumbersAndCountPositiv(int[] array)
 {
-    int even = 0;
+    int count = 0;
+    Console.Write("Вы ввели следующие числа: ");
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i] % 2 == 0) even++;    
+        Console.Write($"{array[i]} ");
+        if(array[i] > 0) count ++;
     }
-    Console.Write($" В массиве чётных чисел: {even}." );
-    return array;
-}   
-
-Console.Write("");
-int[] arr = CreateArray(8, 100, 999);
-PrintArray(arr);
-ArrayEven(arr);
-
-
+    Console.WriteLine();
+    if (count == 1)  Console.WriteLine($"Вы ввели {count} число больше нуля");
+    else if (count == 2 || count == 3 || count == 4)  Console.WriteLine($"Вы ввели {count} числа больше нуля");
+    else Console.WriteLine($"Вы ввели {count} чисел больше нуля");
+}
 
