@@ -4,7 +4,7 @@
 int sizeArray = InputInt("Введите колличество элементов в массиве (целое положитльное число > 1): ");
 int maxVal = InputInt("Введите максимальное число в массиве (целое положитльное число > 1): ");
 int digitsAfterDot = InputInt("Введите колличество знаков после запятой (целое положительное число > 1): ");
-Console.WriteLine("Ошибки некорректного ввода будут обрабатываться в следующих версиях программы. Но это не точно.");
+
 if (sizeArray < 1 || maxVal < 1 || digitsAfterDot < 1)
 {
     Console.WriteLine("Ошибки некорректного ввода будут обрабатываться в следующих версиях программы. Но это не точно.");
@@ -13,14 +13,14 @@ else Run();
 
 void Run()
 {
-    double[] array = CreateArrayRndInt(sizeArray, 0, maxVal, digitsAfterDot);
+    double[] array = CreateArrayRndDouble(sizeArray, 0, maxVal, digitsAfterDot);
     Console.WriteLine("Получился следующий массив");
     PrintArray(array);
     double[] resultForAnsver = ArrayDifferenceMaxMin(array);
     Console.WriteLine($"В этом массиве максимальный элемент: {resultForAnsver[0]}, минимальный элемент: {resultForAnsver[1]}, а их разница: {resultForAnsver[2]}");
 }
 
-double [] CreateArrayRndInt(int size, int min, int max, int digitsAfterDotInner)  
+double [] CreateArrayRndDouble(int size, int min, int max, int digitsAfterDotInner)  
 {
     
     double[] array = new double[size];
