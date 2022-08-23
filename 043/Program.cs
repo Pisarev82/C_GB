@@ -10,7 +10,7 @@ double  b1 = InputInt ("Введите b1: "),
         k1 = InputInt ("Введите k1: "), 
         b2 = InputInt ("Введите b2: "), 
         k2 = InputInt ("Введите k2: ");
-if((k1 - k2) =! 0)
+if((k1 - k2) != 0)
 {
 double x = (b2 - b1) / (k1 - k2);
 double y = k1 * x + b1;
