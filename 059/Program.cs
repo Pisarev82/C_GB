@@ -68,17 +68,24 @@ int[,] CreateMatrixDelMinRowCol(int[,] matrix, int row, int col)
     int jNew = -1;   
     for (int i = 0; i < matrix.GetLength(0); i++) 
     {
-        if (row == i) continue ;
-        if (iNew < result.GetLength(1)-1) iNew++;
+        iNew ++;
         jNew = -1;
+        if (row == i) 
+        {
+            i++;
+     //       continue ;
+        }
  //       System.Console.WriteLine($" из первого цикла inew = {iNew}");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (col == j) continue ;
-            if (jNew < result.GetLength(1)-1) jNew++;
-//            System.Console.WriteLine($" из второго цикла jnew = {jNew}");
+            jNew ++;
+            if (col == j) 
+            {
+                j++;
+ //               continue ;
+            }
             if (iNew<result.GetLength(0) && jNew<result.GetLength(1)) result[iNew,jNew] = matrix[i,j];
-//            System.Console.WriteLine(result[iNew,jNew]);
+ //           System.Console.WriteLine(result[iNew,jNew]);
         }
         
     }
