@@ -2,6 +2,11 @@
 // Напишите программу, которая удалит строку и столбец, на
 // пересечении которых расположен наименьший элемент
 // массива.
+// 1 задать матрицу
+// 2 напечатать матрицу
+// 2 удалить строку и столбец
+// 3 Найти наименьший элемент 
+// 
 
 int[,] CreateMatrixRndInt(int row, int col, int min, int max) 
 {
@@ -56,7 +61,6 @@ int[] FindIndexMinInMatrix(int[,] array)
     }
     result[0] = rowIndex;
     result[1] = colIndex;
-    System.Console.WriteLine();
     return result;
 } 
 
@@ -70,32 +74,33 @@ int[,] CreateMatrixDelMinRowCol(int[,] matrix, int row, int col)
     {
         iNew ++;
         jNew = -1;
-        if (row == i) 
-        {
-            i++;
-     //       continue ;
-        }
- //       System.Console.WriteLine($" из первого цикла inew = {iNew}");
+        if (row == i) i++;
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             jNew ++;
-            if (col == j) 
-            {
-                j++;
- //               continue ;
-            }
+            if (col == j) j++;
             if (iNew<result.GetLength(0) && jNew<result.GetLength(1)) result[iNew,jNew] = matrix[i,j];
- //           System.Console.WriteLine(result[iNew,jNew]);
         }
         
     }
     return result;
 } 
 
-
 int[,] array2D = CreateMatrixRndInt(5,4,0,9);
 PrintMatrix(array2D);
 int[] minIndex = FindIndexMinInMatrix(array2D);
+Console.WriteLine();
 Console.WriteLine($"{minIndex[0]}, {minIndex[1]}");
+Console.WriteLine();
 int[,] newArray2D = CreateMatrixDelMinRowCol(array2D, minIndex[0], minIndex[1]);
 PrintMatrix(newArray2D);
+
+// int[,] newArray2Dex = 
+// {
+//     {00, 01, 02 },
+//     {10, 11, 12 }
+// };
+// Console.WriteLine();
+// PrintMatrix(newArray2Dex);
+// Console.WriteLine();
+// Console.WriteLine(newArray2Dex[1,1]);
