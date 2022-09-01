@@ -40,29 +40,30 @@ void PrintMatrix(int[,] matrix)
 
 int[,] matrix1 = 
 {
-    {2, 4 },
-    {3, 2 }
+    {2, 4, 5 },
+    {3, 2, 2 }
 };
 
 int[,] matrix2 = 
 {
     {3, 4 },
-    {3, 3 }
+    {3, 3 },
+    {1, 4 }
 };
 
-int[] SelectionRow(int[,] matrix1, int row)
+int[] SelectionRow(int[,] matrix2, int row)
 {
-    int[] result = new int[matrix1.GetLength(0)];
-    for (int i = 0; i < result.GetLength(0); i++)
+    int[] result = new int[matrix2.GetLength(0)];
+    for (int i = 0; i < matrix2.GetLength(0); i++)
     {
-            result[i] = matrix1[row,i];
+            result[i] = matrix2[row,i];
     } 
     return result;
 }
 int[] SelectionCol(int[,] matrix1, int col)
 {
     int[] result = new int[matrix1.GetLength(0)];
-    for (int i = 0; i < result.GetLength(0); i++)
+    for (int i = 0; i < matrix1.GetLength(1); i++)
     {
             result[i] = matrix1[i,col];
     } 
@@ -71,22 +72,27 @@ int[] SelectionCol(int[,] matrix1, int col)
 
 int[,] productOfMatrices(int[,] matrix1, int[,] matrix2)
 {
-    int[,] result = new int[matrix1.GetLength(0),matrix1.GetLength(0)];
-    int[] row = SelectionRow(matrix1, 0);
-    int[] col = SelectionCol(matrix2, 0);
-    for (int i = 0; i < result.GetLength(0); i++)
+    int[,] result = new int[matrix1.GetLength(0),matrix2.GetLength(1)];
+    int[] row = SelectionRow(matrix2, 0);
+    int[] col = SelectionCol(matrix1, 0);
+    for (int i = 0; i < matrix2.GetLength(1); i++)
     {
-        for (int j = 0; j < result.GetLength(1); j++)
+        row = SelectionRow(matrix2, i);
+        for (int j = 0; j < matrix1.GetLength(0); j++)
         {
-            row = SelectionRow(matrix1, j);
-            col = SelectionCol(matrix2, j);
+            col = SelectionCol(matrix1, j);
             for (int k = 0; k < row.Length; k++)
-            {
+            {  
                 result[i,j] += row[k]*col[k];
             }
         }
     } 
     return result;
 }
-int[,] multMatrix = productOfMatrices(matrix1,matrix2);
+// Если число столбцов первой матрицы равно числу строк второй матрицы их можно умножить.
+if (matrix1.GetLength(1) == matrix2.GetLength(0))
+{
+int[,] multMatrix = productOfMatrices(matrix2,matrix1);
 PrintMatrix(multMatrix);
+Console.WriteLine($"{matrix1.GetLength(0)}, {matrix2.GetLength(1)}");
+} else Console.WriteLine("Умножать введенне матрицы нельзя");
