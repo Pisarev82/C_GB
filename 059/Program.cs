@@ -2,11 +2,7 @@
 // Напишите программу, которая удалит строку и столбец, на
 // пересечении которых расположен наименьший элемент
 // массива.
-// 1 задать матрицу
-// 2 напечатать матрицу
-// 2 удалить строку и столбец
-// 3 Найти наименьший элемент 
-// 
+
 
 int[,] CreateMatrixRndInt(int row, int col, int min, int max) 
 {
@@ -36,8 +32,7 @@ void PrintMatrix(int[,] matrix)
             else Console.Write($"{matrix[i, j], 3} ");
         }
         Console.WriteLine("]");
-    }
-        
+    }   
 }
 
 int[] FindIndexMinInMatrix(int[,] array) 
@@ -95,12 +90,4 @@ Console.WriteLine();
 int[,] newArray2D = CreateMatrixDelMinRowCol(array2D, minIndex[0], minIndex[1]);
 PrintMatrix(newArray2D);
 
-// int[,] newArray2Dex = 
-// {
-//     {00, 01, 02 },
-//     {10, 11, 12 }
-// };
-// Console.WriteLine();
-// PrintMatrix(newArray2Dex);
-// Console.WriteLine();
-// Console.WriteLine(newArray2Dex[1,1]);
+
