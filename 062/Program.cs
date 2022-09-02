@@ -21,13 +21,78 @@ void PrintMatrix(int[,] matrix)
 
 int[,] CreateAndFillArray2D()
 {
-    int[,] array = new int[4,4];
+    int[,] array = new int[10,10];
     int count = 1;
-    int forvardRow = array.GetLength(0); 
-    int forvardCol = array.GetLength(1);
+    int i = 0;
+    int j = 0;
+    int forvardRowStop = array.GetLength(0); 
+    int forvardColStop = array.GetLength(1);
+    int reversRowStop = 0;
+    int reversColStop = 0;
+    bool forvard = true;
+    bool gorisontal = true;
 
-    while()
-    
+    while(count <= array.Length)
+    {
+        if (count == array.Length) break;
+        if(gorisontal && forvard)
+        {
+            if (j < forvardColStop-1)
+            {
+                array[i, j] = count;
+                count++;
+                j++;
+            } else
+            {
+                forvardColStop--;
+                gorisontal = !gorisontal;
+            }
+        }
+        if(!gorisontal && forvard)
+        {
+            if (i < forvardRowStop-1)
+            {
+                array[i, j] = count;
+                count++;
+                i++;
+            } else
+            {
+                forvardRowStop--;
+                gorisontal = !gorisontal;
+                forvard = !forvard;
+            }
+        }
+        if (gorisontal && !forvard)
+        {
+            if (j > reversColStop)
+            {
+                array[i, j] = count;
+                count++;
+                j--;
+            }
+            else
+            {
+                reversColStop++;
+                gorisontal = !gorisontal;
+            }
+        }
+        if (!gorisontal && !forvard)
+        {
+            if(i > reversRowStop+1)
+            {
+                array[i, j] = count;
+                count++;
+                i--;
+            }
+            else
+             {
+                reversRowStop++;
+                gorisontal = !gorisontal;
+                forvard = !forvard;
+            }
+        }
+    }
+    array[i, j] = count;
     return array;
 }
 
