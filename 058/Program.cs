@@ -9,14 +9,15 @@
 
 int[,] matrixFirst = 
 {
-    {2, 4 },
-    {3, 2 }
+    {2, 4, 1 },
+    {3, 2, 3 }
 };
 
 int[,] matrixSecond = 
 {
     {3, 4 },
-    {3, 3 }
+    {3, 3 },
+    {4, 2 }
 };
 
 void PrintMatrix(int[,] matrix) 
