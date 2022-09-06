@@ -4,5 +4,15 @@
 // N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
 Console.WriteLine("Введите число ");
+int number = Convert.ToInt32(Console.ReadLine());
 
-int[,,] array = new int[1,1,1];
+void PrintNumbers (int num)
+{
+    if (num == 0) return;
+    Console.WriteLine($"{num} ");
+    PrintNumbers(num-1);
+    
+}
+
+Console.WriteLine();
+PrintNumbers(number);
